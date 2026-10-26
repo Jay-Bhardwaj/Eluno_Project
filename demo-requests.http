@@ -1,0 +1,28 @@
+@host = http://localhost:8080
+
+### Customer and latest valid prescription
+GET {{host}}/api/customers/lookup?phone=%2B919000000005
+
+### Frames / lenses from Shopify
+GET {{host}}/api/products/frames
+
+### Invalid lens validation (RX5007 exceeds 1.56 progressive limits)
+POST {{host}}/api/cart/validate
+Content-Type: application/json
+
+{"phone":"+919000000005","location_id":70000002,"staff_id":"S105","rx_id":"RX5007","payment_method":"upi","lines":[{"variant_id":91000003,"pair_ref":"1"},{"variant_id":91000079,"pair_ref":"1"}]}
+
+### Checkout: use a valid 1.60 progressive lens
+POST {{host}}/api/checkout
+Content-Type: application/json
+
+{"phone":"+919000000005","location_id":70000002,"staff_id":"S105","rx_id":"RX5007","payment_method":"upi","channel":"walk_in","lines":[{"variant_id":91000003,"pair_ref":"1"},{"variant_id":91000083,"pair_ref":"1"}]}
+
+### After checkout, replace {orderId} with shopify_order_id
+POST {{host}}/api/refunds/99000005/full
+Content-Type: application/json
+
+{"reason_code":"CHANGED_MIND"}
+
+### Shopify-backed day-end report
+GET {{host}}/api/reports/day-end?locationId=70000002&date=2026-10-25
