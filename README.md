@@ -37,6 +37,4 @@ Invoice series and checkout states persist locally in `pos-state.json` and `chec
 
 Full refunds use the original Shopify line and transaction IDs; frames restock to the billing store and lenses use `no_restock`. Day-end queries Shopify, retains original sales and reports refunds separately.
 
-## Deferred
 
-Automated tests are deliberately deferred by the current assignment brief. Also deferred: cash till, partial refunds, family multi-customer billing, remake authorisation/cost policy, printable invoices, scheduled email, production authentication/monitoring, and an operator reconciliation endpoint for ambiguous Shopify creates. See `STAKEHOLDER_REPLY.md`.
