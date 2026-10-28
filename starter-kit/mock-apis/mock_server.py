@@ -231,7 +231,7 @@ class H(BaseHTTPRequestHandler):
         self._err(404, "Not Found")
 
 if __name__ == "__main__":
-    ap = argparse.ArgumentParser(); ap.add_argument("--port", type=int, default=8787); ap.add_argument("--no-flake", action="store_true")
+    ap = argparse.ArgumentParser(); ap.add_argument("--host", default="0.0.0.0"); ap.add_argument("--port", type=int, default=8787); ap.add_argument("--no-flake", action="store_true")
     a = ap.parse_args(); FLAKE = not a.no_flake
     print(f"mock Shopify Admin + SMT + terminal on http://localhost:{a.port}  (flaky 429/503: {'off' if a.no_flake else 'on'})")
-    HTTPServer(("0.0.0.0", a.port), H).serve_forever()
+    HTTPServer((a.host, a.port), H).serve_forever()

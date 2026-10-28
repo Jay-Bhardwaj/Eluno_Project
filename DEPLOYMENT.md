@@ -1,6 +1,6 @@
 # Free deployment: Render
 
-The deployed demo is a **single Render Free Docker web service**. Spring Boot serves both the cashier UI and `/api/*`; the supplied Python mock starts in the same private container. This preserves the real checkout/refund integrations without making the mock public or requiring CORS.
+The deployed demo is a **single Render Free Docker web service**. Spring Boot serves both the cashier UI and `/api/*`; the supplied Python mock starts on `127.0.0.1` in the same private container. This preserves the real checkout/refund integrations without making the mock public or requiring CORS.
 
 ## Before creating the service
 
