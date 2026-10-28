@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: eluno-pos-demo
+    runtime: docker
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: ELUNO_MOCK_URL
+        value: http://127.0.0.1:8787
+      # Set this only if the UI is later moved to a separate frontend origin.
+      - key: ELUNO_ALLOWED_ORIGIN
+        sync: false

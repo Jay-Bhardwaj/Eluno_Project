@@ -1,0 +1,10 @@
+.git
+.gitignore
+target
+pos-state.json
+checkout-state.json
+*.log
+.env
+.env.*
+README.md
+DEPLOYMENT.md

@@ -31,6 +31,16 @@ public class PosController {
         return pos.products(type.equals("frames") ? "Frame" : "Lens");
     }
 
+  @GetMapping("/stores")
+  JsonNode stores() {
+    return pos.stores();
+  }
+
+  @GetMapping("/staff")
+  JsonNode staff(@RequestParam String store) {
+    return pos.staffForStore(store);
+  }
+
     @PostMapping("/cart/validate")
     JsonNode validate(@RequestBody JsonNode body) {
         return pos.preview(body);

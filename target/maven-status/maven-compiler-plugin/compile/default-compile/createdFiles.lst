@@ -1,5 +1,0 @@
-com\eluno\pos\service\PosService.class
-com\eluno\pos\ElunoPosApplication.class
-com\eluno\pos\client\ApiClient$ApiException.class
-com\eluno\pos\client\ApiClient.class
-com\eluno\pos\controller\PosController.class

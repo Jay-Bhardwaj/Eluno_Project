@@ -3,3 +3,4 @@ server:
 eluno:
   mock-url: ${ELUNO_MOCK_URL:http://localhost:8787}
   business-date: ${ELUNO_BUSINESS_DATE:}
+  allowed-origin: ${ELUNO_ALLOWED_ORIGIN:}

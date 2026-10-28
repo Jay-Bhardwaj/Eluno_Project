@@ -1,0 +1,6 @@
+target/
+pos-state.json
+checkout-state.json
+.env
+.env.*
+!.env.example

@@ -50,6 +50,14 @@ public class PosService {
     return api.getShopify("/products.json?product_type=" + type + "&limit=250").path("products");
   }
 
+  public JsonNode stores() {
+    return api.getShopify("/locations.json").path("locations");
+  }
+
+  public JsonNode staffForStore(String storeCode) {
+    return api.getSmt("/smt/staff?store=" + storeCode).path("staff");
+  }
+
   public JsonNode preview(JsonNode request) {
     return calculate(request, false);
   }

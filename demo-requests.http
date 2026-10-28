@@ -25,4 +25,4 @@ Content-Type: application/json
 {"reason_code":"CHANGED_MIND"}
 
 ### Shopify-backed day-end report
-GET {{host}}/api/reports/day-end?locationId=70000002&date=2026-10-25
+GET {{host}}/api/reports/day-end?locationId=70000002&date=2026-10-26

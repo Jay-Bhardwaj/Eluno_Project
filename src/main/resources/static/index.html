@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Eluno POS cashier console">
+  <title>Eluno POS</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">e</span><span>eluno <b>POS</b></span></a>
+    <div class="store-status"><span class="pulse"></span><span id="storeName">Loading store…</span></div>
+    <button class="quiet-button" id="clearSale" type="button">New sale</button>
+  </header>
+
+  <main class="shell">
+    <section class="sidebar" aria-label="Sale controls">
+      <div class="section-title"><span>01</span><h2>Sale details</h2></div>
+      <label>Billing store <select id="storeSelect"></select></label>
+      <label>Cashier <select id="staffSelect"></select></label>
+      <label>Sales channel
+        <select id="channel"><option value="walk_in">Walk-in</option><option value="whatsapp_booked">WhatsApp booked</option><option value="online_pickup">Online pickup</option></select>
+      </label>
+
+      <div class="section-title customer-title"><span>02</span><h2>Customer & prescription</h2></div>
+      <form id="customerForm" class="search-form">
+        <label>Mobile number</label>
+        <div><input id="phone" type="tel" value="+919000000005" placeholder="+919000000005" required><button class="primary small" type="submit">Find</button></div>
+      </form>
+      <div id="customerCard" class="customer-card empty">Search for a customer to begin.</div>
+      <label id="rxLabel" class="hidden">Prescription <select id="rxSelect"></select></label>
+    </section>
+
+    <section class="catalogue" aria-label="Catalogue">
+      <div class="catalogue-heading"><div><p class="eyebrow">POINT OF SALE</p><h1>Build a sale</h1><p class="muted">Select a frame and prescription lens. The configuration is checked before payment.</p></div><button id="reportButton" class="outline" type="button">Day-end report</button></div>
+      <div class="tabs" role="tablist"><button class="tab active" data-catalogue="frames" type="button">Frames</button><button class="tab" data-catalogue="lenses" type="button">Prescription lenses</button></div>
+      <div id="catalogueMessage" class="inline-message hidden"></div>
+      <div id="productGrid" class="product-grid" aria-live="polite"><div class="loading-card">Loading catalogue…</div></div>
+    </section>
+
+    <aside class="cart-panel" aria-label="Current cart">
+      <div class="cart-heading"><div><p class="eyebrow">CURRENT SALE</p><h2>Cart <span id="cartCount">0</span></h2></div><button class="icon-button" id="clearCart" type="button" title="Clear cart">×</button></div>
+      <div id="cartItems" class="cart-items"><p class="empty-cart">Your cart is empty.<br>Add a frame or lens to begin.</p></div>
+      <div class="pair-control"><label>Pair reference <input id="pairRef" value="1" inputmode="numeric"></label></div>
+      <div id="validationArea"></div>
+      <div class="summary" id="summary"><div><span>Subtotal</span><strong>₹0.00</strong></div><div><span>Discount</span><strong>−₹0.00</strong></div><div><span>GST included</span><strong>₹0.00</strong></div><div class="grand"><span>Total payable</span><strong>₹0.00</strong></div></div>
+      <button id="previewButton" class="outline wide" type="button">Validate cart</button>
+      <button id="checkoutButton" class="primary wide" type="button">Proceed to payment <span>→</span></button>
+    </aside>
+  </main>
+
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-card"><button id="closeModal" class="icon-button close" type="button">×</button><div id="modalContent"></div></div></div>
+  <div id="toast" class="toast hidden" role="status"></div>
+  <script src="/app.js"></script>
+</body>
+</html>
